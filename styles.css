@@ -128,12 +128,13 @@ body {
 .social-icon.discord:hover  { color: #5865F2; }
 
 .stream-section {
-  padding: 40px 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
-  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
   color: #fff;
+  border: 1px solid #fff;
 }
 
 .stream-section h2 {
@@ -143,7 +144,7 @@ body {
 }
 
 .twitch-embed iframe {
-  max-width: 100%;
+  max-width: 50%;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(145, 70, 255, 0.3);
 }
