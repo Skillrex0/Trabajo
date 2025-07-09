@@ -71,6 +71,7 @@ body {
 .sponsor-section {
   width: 800px;
   padding-top: 30px;
+  padding-bottom: 30px;
   margin: 0 auto;
 }
 
@@ -132,22 +133,27 @@ body {
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 30px;
-  margin-bottom: 30px;
+  margin: 0 auto;
   color: #fff;
   border: 1px solid #fff;
+  max-width: 95%;
 }
 
 .stream-section h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: #9146FF; /* Color Twitch */
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
 }
 
-.twitch-embed iframe {
-  max-width: 50%;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(145, 70, 255, 0.3);
-}
+  .twitch-embed iframe {
+    max-width: 100%;
+    height: 200px;
+    border-radius: 12px;  
+    box-shadow: 0 0 15px rgba(145, 70, 255, 0.3);
+  }
 
 
 @media (pointer: coarse) {
