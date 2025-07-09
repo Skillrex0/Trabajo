@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de la Marshalada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .name-title {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .twitter { background: linear-gradient(45deg, #1da1f2, #0d8bd9); }
+        .youtube { background: linear-gradient(45deg, #ff0000, #cc0000); }
+        .telegram { background: linear-gradient(45deg, #0088cc, #0066aa); }
+
+        /* Bets Section */
+        .bets-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            border-radius: 2px;
+        }
+
+        .bets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .bet-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .bet-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .bet-card:hover::before {
+            left: 100%;
+        }
+
+        .bet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .bet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .sport-icon {
+            font-size: 24px;
+        }
+
+        .bet-status {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .match-info {
+            margin-bottom: 15px;
+        }
+
+        .teams {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .bet-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .odds {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .updated-time {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #3498db;
+        }
+
+        .copyright {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .name {
+                font-size: 24px;
+            }
+
+            .bets-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <img src="C:\Users\Juanes-Gaming\Desktop\Trabajo\LAMARSHALADA_LOGO2.png"    alt="Logo de Marshal" class="logo-img" />
+                <div class="name-title">
+                    <div class="name">Marshal</div>
+                    <div class="subtitle">Directos deportivos con humor</div>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-btn instagram">
+                    <span>📱</span> Instagram
+                </a>
+                <a href="#" class="social-btn twitter">
+                    <span>🐦</span> Twitter
+                </a>
+                <a href="#" class="social-btn youtube">
+                    <span>📺</span> YouTube
+                </a>
+                <a href="#" class="social-btn telegram">
+                    <span>✈️</span> Telegram
+                </a>
+            </div>
+        </header>
+
+
+
+        <!-- Bets Section -->
+        <section class="bets-section">
+            <h2 class="section-title">🎯 Apuestas Actuales</h2>
+            <div class="bets-grid" id="betsGrid">
+                <!-- Las apuestas se cargarán aquí dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="#" class="footer-link">Términos y Condiciones</a>
+                <a href="#" class="footer-link">Política de Privacidad</a>
+                <a href="#" class="footer-link">Contacto</a>
+                <a href="#" class="footer-link">Sobre Nosotros</a>
+                <a href="#" class="footer-link">Juego Responsable</a>
+            </div>
+            <div class="copyright">
+                © 2025 Alex Betting. Todos los derechos reservados. | Apuesta con responsabilidad +18
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Datos de ejemplo iniciales
+        let betsData = [
+            {
+                sport: '🏀',
+                teamA: 'Lakers',
+                teamB: 'Warriors',
+                odds: 2.1,
+                status: 'ACTIVA',
+                updated: new Date()
+            },
+            {
+                sport: '⚽',
+                teamA: 'Real Madrid',
+                teamB: 'Barcelona',
+                odds: 1.8,
+                status: 'ACTIVA',
+                updated: new Date()
+            },
+            {
+                sport: '🎾',
+                teamA: 'Nadal',
+                teamB: 'Djokovic',
+                odds: 2.5,
+                status: 'PRÓXIMA',
+                updated: new Date()
+            }
+        ];
+
+
+
+        function formatTime(date) {
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMins = Math.floor(diffMs / 60000);
+            
+            if (diffMins < 1) return 'Ahora mismo';
+            if (diffMins < 60) return `Hace ${diffMins} min`;
+            if (diffMins < 1440) return `Hace ${Math.floor(diffMins / 60)} h`;
+            return `Hace ${Math.floor(diffMins / 1440)} días`;
+        }
+
+        function getStatusColor(status) {
+            switch(status) {
+                case 'ACTIVA': return 'rgba(46, 204, 113, 0.3)';
+                case 'PRÓXIMA': return 'rgba(241, 196, 15, 0.3)';
+                case 'FINALIZADA': return 'rgba(231, 76, 60, 0.3)';
+                default: return 'rgba(255, 255, 255, 0.2)';
+            }
+        }
+
+        function renderBets() {
+            const betsGrid = document.getElementById('betsGrid');
+            betsGrid.innerHTML = '';
+
+            betsData.forEach((bet, index) => {
+                const betCard = document.createElement('div');
+                betCard.className = 'bet-card';
+                betCard.onclick = null;
+                betCard.style.cursor = 'default';
+                betCard.title = '';
+
+                betCard.innerHTML = `
+                    <div class="bet-header">
+                        <span class="sport-icon">${bet.sport}</span>
+                        <span class="bet-status" style="background: ${getStatusColor(bet.status)}">
+                            ${bet.status}
+                        </span>
+                    </div>
+                    <div class="match-info">
+                        <div class="teams">${bet.teamA} vs ${bet.teamB}</div>
+                    </div>
+                    <div class="bet-details">
+                        <div class="odds">
+                            <span>💰</span>
+                            <span>Cuota: ${bet.odds}</span>
+                        </div>
+                    </div>
+                    <div class="updated-time">
+                        <span>🕒</span>
+                        <span>Actualizado ${formatTime(bet.updated)}</span>
+                    </div>
+                `;
+
+                betsGrid.appendChild(betCard);
+            });
+        }
+
+        // Actualizar tiempos cada minuto
+        setInterval(() => {
+            renderBets();
+        }, 60000);
+
+        // Renderizar apuestas iniciales
+        renderBets();
+    </script>
+</body>
+</html>

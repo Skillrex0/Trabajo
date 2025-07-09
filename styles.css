@@ -1,0 +1,217 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #000; /* Fondo negro */
+    min-height: 100vh;
+    color: #fff; /* Texto blanco */
+}
+
+.container {
+    max-width: auto;
+    margin: 0 auto;
+    padding: auto;
+}
+
+/* Header */
+.header {
+    background: rgba(255, 255, 255, 0.1); /* Blanco translúcido */
+    border-bottom: 1px solid white;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2), 0 0 20px rgba(255,255,255,0.05) inset;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+}
+
+/* Logo */
+
+.logo-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.logo-wrapper {
+  padding-left: 20px;
+  padding-bottom: 5px;
+  margin: 0 auto;
+}
+
+.logo-img {
+  width: 200px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logo-description {
+  font-size: 20px;
+  color: #ffffff;
+  padding-top: 6px;
+  text-align: center;
+  margin-left: -25px;
+}
+
+/* Sponsor */
+
+.sponsor-section {
+  width: 800px;
+  padding-top: 30px;
+  margin: 0 auto;
+}
+
+.sponsor-img2 {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* Redes sociales */
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 10;
+}
+
+.social-icon {
+    font-size: 22px;
+    color: #aaa;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon.instagram:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%,
+    #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Para Firefox */
+}
+
+.social-icon.tiktok:hover {
+  color: white;
+  text-shadow:
+    -1px -1px 0 #69C9D0,  /* Cian claro */
+     1px  1px 0 #EE1D52;  /* Fucsia fuerte */
+}
+
+.social-icon.twitch:hover {
+  color: white;
+  text-shadow:
+    -2px -2px 0 #9146FF,
+     2px -2px 0 #9146FF,
+    -2px  2px 0 #9146FF,
+     2px  2px 0 #9146FF;
+}
+
+.social-icon.twitter:hover  { color: #fff; }
+.social-icon.youtube:hover  { color: #FF0000; }
+.social-icon.discord:hover  { color: #5865F2; }
+
+.stream-section {
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  text-align: center;
+  color: #fff;
+}
+
+.stream-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #9146FF; /* Color Twitch */
+}
+
+.twitch-embed iframe {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(145, 70, 255, 0.3);
+}
+
+
+@media (pointer: coarse) {
+  .header {
+    min-height: 80px; /* Asegurar espacio para los íconos */
+    align-items: center; /* Evitar desalineación */
+    padding-top: 10px; /* Espacio extra si los íconos solapan */
+  }
+  
+  .logo-img {
+    width: 100px; /* Logo un poco más pequeño */
+    padding-top: 0px;
+  }
+
+  .logo-wrapper {
+    padding-left: 25px;
+  }
+
+  .logo-description {
+    font-size: 8px;
+    padding-left: 2px;
+  }
+
+  .sponsor-section {
+    width: 250px;
+  } 
+
+  .social-icon {
+      font-size: 10px;
+  }
+
+  .social-icons {
+    position: absolute; /* Mantener posición fija */
+    top: 10px; /* Ajustar si es necesario */
+    right: 15px; /* Ajustar según padding */
+    margin-top: 0; /* Eliminar margen que los empujaba abajo */
+  }
+
+  .social-icon.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%,
+      #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .social-icon.tiktok {
+    color: white;
+    text-shadow:
+      -1px -1px 0 #69C9D0,
+       1px  1px 0 #EE1D52;
+  }
+  .social-icon.twitter  { color: #fff; }
+  .social-icon.youtube  { color: #FF0000; }
+  .social-icon.telegram { color: #0088cc; }
+  .social-icon.discord  { color: #5865F2; }
+}
+
+@media (max-width: 480px) and (pointer: coarse) {
+  .logo-section {
+    flex-direction: column; /* Apilar logo y descripción */
+    align-items: flex-start;
+  }
+  
+  .social-icon {
+    font-size: 10px; /* Íconos más pequeños */
+  }
+}

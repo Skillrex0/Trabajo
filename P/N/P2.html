@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 Marshal - Directos deportivos con humor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            padding: 25px;
+            text-align: center;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Social Links */
+        .social-section {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .twitter { border-color: #1da1f2; }
+        .twitter:hover { background: rgba(29, 161, 242, 0.2); }
+        
+        .instagram { border-color: #e4405f; }
+        .instagram:hover { background: rgba(228, 64, 95, 0.2); }
+        
+        .telegram { border-color: #0088cc; }
+        .telegram:hover { background: rgba(0, 136, 204, 0.2); }
+
+        /* Featured Bet */
+        .featured-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ff6b35;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .featured-bet {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .featured-bet::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s;
+        }
+
+        .featured-bet:hover::before {
+            left: 100%;
+        }
+
+        .match-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bet-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .odds-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .countdown {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        .countdown-timer {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            color: #ffd700;
+        }
+
+        /* Other Bets */
+        .other-bets-section {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .bet-item {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .bet-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .match-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .sport-icon {
+            font-size: 20px;
+        }
+
+        .odds-badge {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .footer-link {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #ff6b35;
+        }
+
+        .copyright {
+            color: #888;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+
+            .title {
+                font-size: 24px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .social-links {
+                gap: 10px;
+            }
+
+            .social-btn {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+
+            .bet-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .bet-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Pulse animation for featured bet */
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+            50% { box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3); }
+        }
+
+        .featured-bet {
+            animation: pulse 3s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="title">🔥 Marshal</div>
+            <div class="subtitle">*Directos deportivos con humor*</div>
+        </header>
+
+        <!-- Social Links -->
+        <section class="social-section">
+            <div class="social-links">
+                <a href="#" class="social-btn twitter">
+                    <span>🐦</span> Twitter
+                </a>
+                <a href="#" class="social-btn instagram">
+                    <span>📱</span> Instagram
+                </a>
+                <a href="#" class="social-btn telegram">
+                    <span>✈️</span> Telegram
+                </a>
+            </div>
+        </section>
+
+        <!-- Featured Bet -->
+        <section class="featured-section">
+            <h2 class="section-title">🎯 Apuesta destacada:</h2>
+            <div class="featured-bet">
+                <div class="match-title">
+                    <span>🥊</span>
+                    <span>Tyson Fury vs Francis Ngannou</span>
+                </div>
+                <div class="bet-info">
+                    <div class="odds-info">
+                        <span>💰</span>
+                        <span>Cuota: 2.4</span>
+                    </div>
+                    <div class="countdown">
+                        <span>🕒</span>
+                        <span>Empieza en: <span class="countdown-timer" id="countdown">01:23:59</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Bets -->
+        <section class="other-bets-section">
+            <h2 class="section-title">📋 Otras apuestas:</h2>
+            <div class="bet-list">
+                <div class="bet-item">
+                    <div class="match-info">
+                        <span class="sport-icon">⚽</span>
+                        <span>Real Madrid vs Barcelona</span>
+                    </div>
+                    <div class="odds-badge">Cuota 1.9</div>
+                </div>
+                <div class="bet-item">
+                    <div class="match-info">
+                        <span class="sport-icon">🏀</span>
+                        <span>Lakers vs Celtics</span>
+                    </div>
+                    <div class="odds-badge">Cuota 2.3</div>
+                </div>
+                <div class="bet-item">
+                    <div class="match-info">
+                        <span class="sport-icon">🎾</span>
+                        <span>Djokovic vs Nadal</span>
+                    </div>
+                    <div class="odds-badge">Cuota 1.7</div>
+                </div>
+                <div class="bet-item">
+                    <div class="match-info">
+                        <span class="sport-icon">🏈</span>
+                        <span>Chiefs vs Patriots</span>
+                    </div>
+                    <div class="odds-badge">Cuota 2.1</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <a href="#" class="footer-link">📞 Contacto</a>
+                <a href="#" class="footer-link">📱 Redes Sociales</a>
+                <a href="#" class="footer-link">🎯 Predicciones</a>
+                <a href="#" class="footer-link">⚖️ Juego Responsable</a>
+            </div>
+            <div class="copyright">
+                © 2025 Marshal - Directos deportivos con humor | Apuesta con responsabilidad +18
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Countdown timer functionality
+        function startCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            let totalSeconds = 1 * 3600 + 23 * 60 + 59; // 1:23:59
+
+            function updateCountdown() {
+                const hours = Math.floor(totalSeconds / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+
+                const timeString = 
+                    String(hours).padStart(2, '0') + ':' +
+                    String(minutes).padStart(2, '0') + ':' +
+                    String(seconds).padStart(2, '0');
+
+                countdownElement.textContent = timeString;
+
+                if (totalSeconds > 0) {
+                    totalSeconds--;
+                } else {
+                    countdownElement.textContent = "¡EN VIVO!";
+                    countdownElement.style.color = "#ff4444";
+                    countdownElement.style.fontWeight = "bold";
+                    clearInterval(countdownInterval);
+                }
+            }
+
+            updateCountdown();
+            const countdownInterval = setInterval(updateCountdown, 1000);
+        }
+
+        // Initialize countdown when page loads
+        document.addEventListener('DOMContentLoaded', startCountdown);
+
+        // Add some interactive effects
+        document.querySelectorAll('.bet-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.background = 'rgba(255, 107, 53, 0.2)';
+                setTimeout(() => {
+                    this.style.background = 'rgba(255, 255, 255, 0.08)';
+                }, 300);
+            });
+        });
+
+        // Social links hover effect
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-2px) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
