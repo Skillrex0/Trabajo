@@ -146,7 +146,7 @@ body {
   margin: 0 auto;
   color: #fff;
   border: 1px solid #fff;
-  max-width: 80%;
+  max-width: 90%;
   align-items: center;
 }
 
@@ -162,7 +162,7 @@ body {
 .twitch-embed iframe {
   display: flex;
   justify-content: center;
-  max-width: 70%;
+  max-width: 90%;
   margin: 0 auto;
   border-radius: 12px;  
   box-shadow: 0 0 15px rgba(145, 70, 255, 0.3);
