@@ -51,7 +51,7 @@ body {
 }
 
 .logo-img {
-  width: 200px;
+  width: 250px;
   height: auto;
   margin: 0 auto;
   object-fit: contain;
@@ -59,18 +59,25 @@ body {
 }
 
 .logo-description {
-  font-size: 20px;
+  font-size: 26px;
   color: #ffffff;
   padding-top: 6px;
   text-align: center;
-  margin-left: -25px;
+  margin-left: -35px;
 }
 
 /* Sponsor */
 
 .sponsor-section {
-  width: 800px;
+  width: 900px;
   padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+}
+
+.sponsor-section2 {
+  width: 1000px;
+  padding-top: 50px;
   padding-bottom: 30px;
   margin: 0 auto;
 }
@@ -93,7 +100,7 @@ body {
 }
 
 .social-icon {
-    font-size: 22px;
+    font-size: 30px;
     color: #aaa;
     transition: color 0.3s ease;
     text-decoration: none;
@@ -128,18 +135,19 @@ body {
 .social-icon.youtube:hover  { color: #FF0000; }
 .social-icon.discord:hover  { color: #5865F2; }
 
-.stream-section {
+.sections {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 30px;
+  padding-bottom: 30px;
   margin: 0 auto;
   color: #fff;
   border: 1px solid #fff;
   max-width: 95%;
 }
 
-.stream-section h2 {
+.sections h2 {
     font-size: 28px;
     font-weight: bold;
     color: #fff;
