@@ -235,12 +235,13 @@ body {
   }
 
   .social-icons {
-    position: absolute; /* Mantener posición fija */
-    top: 10px; /* Ajustar si es necesario */
-    right: 15px; /* Ajustar según padding */
-    margin-top: 0; /* Eliminar margen que los empujaba abajo */
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    gap: 10px;
+    margin-top: 0;
   }
-
+/*
   .social-icon.instagram {
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%,
       #fd5949 45%, #d6249f 60%, #285AEB 90%);
@@ -259,6 +260,7 @@ body {
   .social-icon.youtube  { color: #FF0000; }
   .social-icon.telegram { color: #0088cc; }
   .social-icon.discord  { color: #5865F2; }
+  */
 }
 
 @media (max-width: 480px) and (pointer: coarse) {
