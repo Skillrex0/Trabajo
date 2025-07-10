@@ -160,10 +160,12 @@ body {
 }
 
 .twitch-embed iframe {
-  display: flex;
-  justify-content: center;
-  max-width: 90%;
-  margin: 0 auto;
+  display: block; /* Cambia de flex a block (iframe es elemento de línea) */
+  width: 100%; /* Ocupa el 100% del contenedor padre */
+  max-width: 900px; /* Máximo ancho para desktop */
+  height: auto; /* Altura automática (se ajustará con aspect-ratio) */
+  aspect-ratio: 16/9; /* Relación de aspecto estándar para video (16:9) */
+  margin: 0 auto; /* Centrado horizontal */
   border-radius: 12px;  
   box-shadow: 0 0 15px rgba(145, 70, 255, 0.3);
 }
@@ -217,6 +219,12 @@ body {
   .sponsor-section2 {
     width: 250px;
   } 
+
+  .twitch-embed iframe {
+    max-width: 100%; /* Permite que ocupe todo el ancho en móviles */
+    border-radius: 8px; /* Bordes más pequeños en móviles */
+    box-shadow: 0 0 10px rgba(145, 70, 255, 0.2); /* Sombra más sutil */
+  }
 
   .social-icon {
       font-size: 10px;
