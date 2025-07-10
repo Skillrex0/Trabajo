@@ -59,11 +59,11 @@ body {
 }
 
 .logo-description {
-  font-size: 26px;
+  font-size: 24px;
   color: #ffffff;
   padding-top: 6px;
   text-align: center;
-  margin-left: -35px;
+  margin-left: -30px;
 }
 
 /* Sponsor */
@@ -76,7 +76,7 @@ body {
 }
 
 .sponsor-section2 {
-  width: 1000px;
+  width: 9000px;
   padding-top: 50px;
   padding-bottom: 30px;
   margin: 0 auto;
@@ -100,7 +100,7 @@ body {
 }
 
 .social-icon {
-    font-size: 30px;
+    font-size: 24px;
     color: #aaa;
     transition: color 0.3s ease;
     text-decoration: none;
